@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../core/data/filter_provider.dart';
-import '../../core/engine/color_matrix.dart';
 import '../../core/theme/app_colors.dart';
 
 /// Filter selector: intensity slider + category tabs + filter thumbnails.

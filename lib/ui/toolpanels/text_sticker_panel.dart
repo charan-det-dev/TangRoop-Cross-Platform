@@ -25,7 +25,7 @@ class TextToolPanel extends StatelessWidget {
 
   static const colors = [
     Colors.white, Colors.black, Colors.red, Colors.yellow, Colors.green,
-    Colors.blue, Colors.cyan, Colors.magenta, primaryPink,
+    Colors.blue, Colors.cyan, primaryPink,
     Color(0xFFE91E63), Color(0xFF9C27B0), Color(0xFF3F51B5), Color(0xFF00BCD4),
   ];
 

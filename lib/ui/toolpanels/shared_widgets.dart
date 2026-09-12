@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../core/theme/app_colors.dart';
-import 'package:flutter/services.dart' show rootBundle;
 
 /// Shared "Adjustment Slider" row: label + % + reset button + slider.
 class AdjustmentSlider extends StatelessWidget {
