@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../core/data/text_preset.dart';
 import '../../core/theme/app_colors.dart';
 import 'shared_widgets.dart';
@@ -24,9 +25,18 @@ class TextToolPanel extends StatelessWidget {
   });
 
   static const colors = [
-    Colors.white, Colors.black, Colors.red, Colors.yellow, Colors.green,
-    Colors.blue, Colors.cyan, primaryPink,
-    Color(0xFFE91E63), Color(0xFF9C27B0), Color(0xFF3F51B5), Color(0xFF00BCD4),
+    Colors.white,
+    Colors.black,
+    Colors.red,
+    Colors.yellow,
+    Colors.green,
+    Colors.blue,
+    Colors.cyan,
+    primaryPink,
+    Color(0xFFE91E63),
+    Color(0xFF9C27B0),
+    Color(0xFF3F51B5),
+    Color(0xFF00BCD4),
   ];
 
   @override
@@ -35,32 +45,39 @@ class TextToolPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Text Presets',
-              style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+          const Text(
+            'Text Presets',
+            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 6),
           SizedBox(
             height: 36,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: TextPresetProvider.presets.length,
-              separatorBuilder: (_, __) => const SizedBox(width: 8),
+              separatorBuilder: (_, _) => const SizedBox(width: 8),
               itemBuilder: (_, i) {
                 final preset = TextPresetProvider.presets[i];
                 return GestureDetector(
                   onTap: () => onSelectTextPreset(preset),
                   child: Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: const Color(0xFFF3F4F6),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    child: Text(preset.title,
-                        style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.bold,
-                            color: preset.defaultColor)),
+                    child: Text(
+                      preset.title,
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                        color: preset.defaultColor,
+                      ),
+                    ),
                   ),
                 );
               },
@@ -80,17 +97,20 @@ class TextToolPanel extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           AdjustmentSlider(
-              label: 'Text Size',
-              value: textSize,
-              min: 10, max: 100, defaultValue: 32,
-              onValueChange: onTextSizeChange),
+            label: 'Text Size',
+            value: textSize,
+            min: 10,
+            max: 100,
+            defaultValue: 32,
+            onValueChange: onTextSizeChange,
+          ),
           const SizedBox(height: 10),
           SizedBox(
             height: 30,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: colors.length,
-              separatorBuilder: (_, __) => const SizedBox(width: 8),
+              separatorBuilder: (_, _) => const SizedBox(width: 8),
               itemBuilder: (_, i) {
                 final color = colors[i];
                 final isSelected = selectedColor == color;
@@ -103,10 +123,11 @@ class TextToolPanel extends StatelessWidget {
                       color: color,
                       shape: BoxShape.circle,
                       border: Border.all(
-                          color: isSelected
-                              ? Colors.white
-                              : Colors.grey.withValues(alpha: 0.4),
-                          width: isSelected ? 2 : 1),
+                        color: isSelected
+                            ? Colors.white
+                            : Colors.grey.withValues(alpha: 0.4),
+                        width: isSelected ? 2 : 1,
+                      ),
                     ),
                   ),
                 );
@@ -123,28 +144,27 @@ class StickerToolPanel extends StatelessWidget {
   final ValueChanged<String> onStickerSelected;
   const StickerToolPanel({super.key, required this.onStickerSelected});
 
-  static const stickers = [
-    '❤️', '🔥', '✨', '⭐', '🎉', '😎', '🌈', '📸', '🎨',
-  ];
+  static const stickers = ['❤️', '🔥', '✨', '⭐', '🎉', '😎', '🌈', '📸', '🎨'];
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Select a Sticker',
-            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+        const Text(
+          'Select a Sticker',
+          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+        ),
         const SizedBox(height: 8),
         SizedBox(
           height: 56,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: stickers.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 16),
+            separatorBuilder: (_, _) => const SizedBox(width: 16),
             itemBuilder: (_, i) => GestureDetector(
               onTap: () => onStickerSelected(stickers[i]),
-              child: Text(stickers[i],
-                  style: const TextStyle(fontSize: 40)),
+              child: Text(stickers[i], style: const TextStyle(fontSize: 40)),
             ),
           ),
         ),
@@ -173,10 +193,14 @@ class CropToolPanel extends StatelessWidget {
         const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Crop & Rotate Aspect Ratios',
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
-            Text('Tap to open cropper',
-                style: TextStyle(fontSize: 11, color: Colors.grey)),
+            Text(
+              'Crop & Rotate Aspect Ratios',
+              style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'Tap to open cropper',
+              style: TextStyle(fontSize: 11, color: Colors.grey),
+            ),
           ],
         ),
         const SizedBox(height: 10),
@@ -185,26 +209,34 @@ class CropToolPanel extends StatelessWidget {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: presets.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 10),
+            separatorBuilder: (_, _) => const SizedBox(width: 10),
             itemBuilder: (_, i) {
               final (label, icon, fixRatio, rx, ry) = presets[i];
               return GestureDetector(
                 onTap: () => onCropPresetSelected(fixRatio, rx, ry),
                 child: Container(
                   height: 48,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 8,
+                  ),
                   decoration: BoxDecoration(
                     color: const Color(0xFFF3F4F6),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Row(children: [
-                    Icon(icon, color: primaryPink, size: 18),
-                    const SizedBox(width: 6),
-                    Text(label,
+                  child: Row(
+                    children: [
+                      Icon(icon, color: primaryPink, size: 18),
+                      const SizedBox(width: 6),
+                      Text(
+                        label,
                         style: const TextStyle(
-                            fontSize: 12, fontWeight: FontWeight.bold)),
-                  ]),
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               );
             },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../core/theme/app_colors.dart';
 import 'shared_widgets.dart';
 
@@ -26,8 +27,14 @@ class AICutoutToolPanel extends StatelessWidget {
   ];
 
   static const solidColors = [
-    Colors.white, Colors.black, Color(0xFFFF4E88), Color(0xFF00E5FF),
-    Color(0xFFFFD700), Color(0xFF9C27B0), Color(0xFF4CAF50), Color(0xFFFF9800),
+    Colors.white,
+    Colors.black,
+    Color(0xFFFF4E88),
+    Color(0xFF00E5FF),
+    Color(0xFFFFD700),
+    Color(0xFF9C27B0),
+    Color(0xFF4CAF50),
+    Color(0xFFFF9800),
   ];
 
   @override
@@ -39,26 +46,35 @@ class AICutoutToolPanel extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('1-Tap AI Background Cutout',
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
+              const Text(
+                '1-Tap AI Background Cutout',
+                style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+              ),
               GestureDetector(
                 onTap: onProcessCutout,
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 4,
+                  ),
                   decoration: BoxDecoration(
                     color: primaryPink,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: const Row(children: [
-                    Icon(Icons.auto_awesome, color: Colors.white, size: 14),
-                    SizedBox(width: 4),
-                    Text('Auto Cutout',
+                  child: const Row(
+                    children: [
+                      Icon(Icons.auto_awesome, color: Colors.white, size: 14),
+                      SizedBox(width: 4),
+                      Text(
+                        'Auto Cutout',
                         style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 11,
-                            fontWeight: FontWeight.bold)),
-                  ]),
+                          color: Colors.white,
+                          fontSize: 11,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -69,7 +85,7 @@ class AICutoutToolPanel extends StatelessWidget {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: bgOptions.length,
-              separatorBuilder: (_, __) => const SizedBox(width: 10),
+              separatorBuilder: (_, _) => const SizedBox(width: 10),
               itemBuilder: (_, i) {
                 final (type, label, icon) = bgOptions[i];
                 final isSelected = cutoutBgType == type;
@@ -77,7 +93,9 @@ class AICutoutToolPanel extends StatelessWidget {
                   onTap: () => onBgTypeSelected(type),
                   child: Container(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 6),
+                      horizontal: 12,
+                      vertical: 6,
+                    ),
                     decoration: BoxDecoration(
                       color: isSelected
                           ? tabSelectedBackground
@@ -87,15 +105,23 @@ class AICutoutToolPanel extends StatelessWidget {
                           ? Border.all(color: primaryPink, width: 1.5)
                           : null,
                     ),
-                    child: Row(children: [
-                      Icon(icon,
+                    child: Row(
+                      children: [
+                        Icon(
+                          icon,
                           size: 16,
-                          color: isSelected ? primaryPink : Colors.black87),
-                      const SizedBox(width: 6),
-                      Text(label,
+                          color: isSelected ? primaryPink : Colors.black87,
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          label,
                           style: const TextStyle(
-                              fontSize: 11, fontWeight: FontWeight.w500)),
-                    ]),
+                            fontSize: 11,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 );
               },
@@ -103,14 +129,17 @@ class AICutoutToolPanel extends StatelessWidget {
           ),
           if (cutoutBgType == 'Solid') ...[
             const SizedBox(height: 12),
-            const Text('Select Background Color', style: TextStyle(fontSize: 12)),
+            const Text(
+              'Select Background Color',
+              style: TextStyle(fontSize: 12),
+            ),
             const SizedBox(height: 6),
             SizedBox(
               height: 28,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: solidColors.length,
-                separatorBuilder: (_, __) => const SizedBox(width: 8),
+                separatorBuilder: (_, _) => const SizedBox(width: 8),
                 itemBuilder: (_, i) {
                   final color = solidColors[i];
                   final isSelected = cutoutSolidColor == color;
@@ -123,9 +152,9 @@ class AICutoutToolPanel extends StatelessWidget {
                         color: color,
                         shape: BoxShape.circle,
                         border: Border.all(
-                            color:
-                                isSelected ? primaryPink : Colors.transparent,
-                            width: 2),
+                          color: isSelected ? primaryPink : Colors.transparent,
+                          width: 2,
+                        ),
                       ),
                     ),
                   );
@@ -166,23 +195,27 @@ class VFXToolPanel extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Special VFX & Shaders',
-            style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold)),
+        const Text(
+          'Special VFX & Shaders',
+          style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+        ),
         const SizedBox(height: 10),
         SizedBox(
           height: 42,
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: vfxList.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 10),
+            separatorBuilder: (_, _) => const SizedBox(width: 10),
             itemBuilder: (_, i) {
               final (name, label) = vfxList[i];
               final isSelected = vfxName == name;
               return GestureDetector(
                 onTap: () => onVfxSelected(name),
                 child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 14,
+                    vertical: 8,
+                  ),
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: isSelected
@@ -193,11 +226,14 @@ class VFXToolPanel extends StatelessWidget {
                         ? Border.all(color: primaryPink, width: 1.5)
                         : null,
                   ),
-                  child: Text(label,
-                      style: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: isSelected ? primaryPink : Colors.black87)),
+                  child: Text(
+                    label,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                      color: isSelected ? primaryPink : Colors.black87,
+                    ),
+                  ),
                 ),
               );
             },
@@ -206,10 +242,11 @@ class VFXToolPanel extends StatelessWidget {
         if (vfxName != 'None') ...[
           const SizedBox(height: 10),
           AdjustmentSlider(
-              label: '$vfxName Intensity',
-              value: vfxIntensity,
-              defaultValue: 0.5,
-              onValueChange: onIntensityChange),
+            label: '$vfxName Intensity',
+            value: vfxIntensity,
+            defaultValue: 0.5,
+            onValueChange: onIntensityChange,
+          ),
         ],
       ],
     );

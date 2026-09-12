@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
+import 'package:gal/gal.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class SaveResultData {
@@ -42,14 +42,12 @@ class ImageExporter {
         return const SaveResultData(success: false);
       }
 
-      final result = await ImageGallerySaverPlus.saveImage(
+      await Gal.putImageBytes(
         Uint8List.fromList(bytes),
-        quality: 95,
         name: 'TangRoop_${DateTime.now().millisecondsSinceEpoch}',
       );
-
-      final success = result['isSuccess'] == true || result['filePath'] != null;
-      final path = result['filePath'] as String?;
+      final success = true;
+      final path = '';
 
       return SaveResultData(
         success: success,
@@ -71,9 +69,15 @@ class ImageExporter {
   }
 
   static Future<bool> _ensurePermission() async {
-    if (Platform.isIOS) return true; // iOS uses photo-add permission prompt
-    final status = await Permission.photos.request();
-    return status.isGranted || status.isLimited;
+    try {
+      final hasAccess = await Gal.hasAccess();
+      if (!hasAccess) {
+        return await Gal.requestAccess();
+      }
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../core/data/filter_provider.dart';
 import '../../core/theme/app_colors.dart';
 
@@ -26,8 +27,7 @@ class FilterSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final list = FilterProvider.allFilters
-        .where((f) =>
-            f.category == selectedCategory || f.name == 'Original')
+        .where((f) => f.category == selectedCategory || f.name == 'Original')
         .toList();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,16 +56,18 @@ class FilterSelector extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(category,
-                            style: TextStyle(
-                              fontSize: 13,
-                              fontWeight: selectedCategory == category
-                                  ? FontWeight.bold
-                                  : FontWeight.normal,
-                              color: selectedCategory == category
-                                  ? primaryPink
-                                  : Colors.black87,
-                            )),
+                        Text(
+                          category,
+                          style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: selectedCategory == category
+                                ? FontWeight.bold
+                                : FontWeight.normal,
+                            color: selectedCategory == category
+                                ? primaryPink
+                                : Colors.black87,
+                          ),
+                        ),
                         const Spacer(),
                         Container(
                           height: 2,
@@ -88,7 +90,7 @@ class FilterSelector extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.symmetric(horizontal: 4),
             itemCount: list.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
+            separatorBuilder: (_, _) => const SizedBox(width: 12),
             itemBuilder: (_, i) {
               final filter = list[i];
               final isSelected = filter.name == selectedFilterName;
@@ -103,8 +105,7 @@ class FilterSelector extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                         color: Colors.grey.withValues(alpha: 0.3),
                         border: isSelected
-                            ? Border.all(
-                                color: filterSelectedBorder, width: 2)
+                            ? Border.all(color: filterSelectedBorder, width: 2)
                             : null,
                       ),
                       child: ClipRRect(
@@ -114,23 +115,23 @@ class FilterSelector extends StatelessWidget {
                                 image: previewImage!,
                                 fit: BoxFit.cover,
                                 colorBlendMode: BlendMode.color,
-                                color: Colors.white.withValues(
-                                    alpha: 0),
+                                color: Colors.white.withValues(alpha: 0),
                               )
                             : const SizedBox(),
                       ),
                     ),
                     const SizedBox(height: 4),
-                    Text(filter.name,
-                        maxLines: 1,
-                        style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: isSelected
-                              ? FontWeight.bold
-                              : FontWeight.normal,
-                          color:
-                              isSelected ? primaryPink : Colors.black87,
-                        )),
+                    Text(
+                      filter.name,
+                      maxLines: 1,
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: isSelected
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        color: isSelected ? primaryPink : Colors.black87,
+                      ),
+                    ),
                   ],
                 ),
               );

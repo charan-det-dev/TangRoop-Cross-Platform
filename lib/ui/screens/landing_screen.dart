@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../core/theme/app_colors.dart';
 
 class TrendingFilterCard {
@@ -18,14 +19,30 @@ class _LandingScreenState extends State<LandingScreen> {
   int selectedNavTab = 0;
 
   static const trendingFilters = [
-    TrendingFilterCard('f1', 'Cinematic', 'Cinematic color tone',
-        'https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=600'),
-    TrendingFilterCard('f2', 'Vintage Film', 'Retro film grain look',
-        'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600'),
-    TrendingFilterCard('f3', 'G7X Flash', 'Y2K digicam flash',
-        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600'),
-    TrendingFilterCard('f4', 'Dreamy', 'Soft glow portrait',
-        'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600'),
+    TrendingFilterCard(
+      'f1',
+      'Cinematic',
+      'Cinematic color tone',
+      'https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=600',
+    ),
+    TrendingFilterCard(
+      'f2',
+      'Vintage Film',
+      'Retro film grain look',
+      'https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600',
+    ),
+    TrendingFilterCard(
+      'f3',
+      'G7X Flash',
+      'Y2K digicam flash',
+      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600',
+    ),
+    TrendingFilterCard(
+      'f4',
+      'Dreamy',
+      'Soft glow portrait',
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600',
+    ),
   ];
 
   @override
@@ -49,16 +66,21 @@ class _LandingScreenState extends State<LandingScreen> {
                   children: [
                     // Header
                     Padding(
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 12,
+                      ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text('TangRoop',
-                              style: TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.w900,
-                                  color: textPrimaryDark)),
+                          const Text(
+                            'TangRoop',
+                            style: TextStyle(
+                              fontSize: 26,
+                              fontWeight: FontWeight.w900,
+                              color: textPrimaryDark,
+                            ),
+                          ),
                           Container(
                             padding: const EdgeInsets.all(10),
                             decoration: BoxDecoration(
@@ -66,12 +88,15 @@ class _LandingScreenState extends State<LandingScreen> {
                               color: Colors.white,
                               boxShadow: [
                                 BoxShadow(
-                                    color: Colors.black.withValues(alpha: 0.08),
-                                    blurRadius: 10),
+                                  color: Colors.black.withValues(alpha: 0.08),
+                                  blurRadius: 10,
+                                ),
                               ],
                             ),
-                            child: const Icon(Icons.notifications_none,
-                                color: textPrimaryDark),
+                            child: const Icon(
+                              Icons.notifications_none,
+                              color: textPrimaryDark,
+                            ),
                           ),
                         ],
                       ),
@@ -82,17 +107,23 @@ class _LandingScreenState extends State<LandingScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('ยินดีต้อนรับ 👋',
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: textSecondaryDark,
-                                  fontWeight: FontWeight.w600)),
+                          Text(
+                            'ยินดีต้อนรับ 👋',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: textSecondaryDark,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
                           SizedBox(height: 4),
-                          Text('เริ่มแต่งรูปของคุณ',
-                              style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w800,
-                                  color: Color(0xFF1E1E24))),
+                          Text(
+                            'เริ่มแต่งรูปของคุณ',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w800,
+                              color: Color(0xFF1E1E24),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -103,24 +134,28 @@ class _LandingScreenState extends State<LandingScreen> {
                       child: Row(
                         children: [
                           _QuickTool(
-                              icon: Icons.photo_camera,
-                              label: 'แต่งรูป',
-                              onTap: widget.onStartClick),
+                            icon: Icons.photo_camera,
+                            label: 'แต่งรูป',
+                            onTap: widget.onStartClick,
+                          ),
                           const SizedBox(width: 12),
                           _QuickTool(
-                              icon: Icons.grid_on,
-                              label: 'คอลลาจ',
-                              onTap: widget.onStartClick),
+                            icon: Icons.grid_on,
+                            label: 'คอลลาจ',
+                            onTap: widget.onStartClick,
+                          ),
                           const SizedBox(width: 12),
                           _QuickTool(
-                              icon: Icons.auto_fix_high,
-                              label: 'เมจิกบรัช',
-                              onTap: widget.onStartClick),
+                            icon: Icons.auto_fix_high,
+                            label: 'เมจิกบรัช',
+                            onTap: widget.onStartClick,
+                          ),
                           const SizedBox(width: 12),
                           _QuickTool(
-                              icon: Icons.face_retouching_natural,
-                              label: 'ความสวย',
-                              onTap: widget.onStartClick),
+                            icon: Icons.face_retouching_natural,
+                            label: 'ความสวย',
+                            onTap: widget.onStartClick,
+                          ),
                         ],
                       ),
                     ),
@@ -131,11 +166,14 @@ class _LandingScreenState extends State<LandingScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('ฟิลเตอร์ยอดนิยม',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF1E1E24))),
+                          Text(
+                            'ฟิลเตอร์ยอดนิยม',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF1E1E24),
+                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -146,7 +184,7 @@ class _LandingScreenState extends State<LandingScreen> {
                         scrollDirection: Axis.horizontal,
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         itemCount: trendingFilters.length,
-                        separatorBuilder: (_, __) => const SizedBox(width: 14),
+                        separatorBuilder: (_, _) => const SizedBox(width: 14),
                         itemBuilder: (_, i) {
                           final card = trendingFilters[i];
                           return GestureDetector(
@@ -157,10 +195,10 @@ class _LandingScreenState extends State<LandingScreen> {
                                 borderRadius: BorderRadius.circular(20),
                                 boxShadow: [
                                   BoxShadow(
-                                      color:
-                                          Colors.black.withValues(alpha: 0.15),
-                                      blurRadius: 10,
-                                      offset: const Offset(0, 4)),
+                                    color: Colors.black.withValues(alpha: 0.15),
+                                    blurRadius: 10,
+                                    offset: const Offset(0, 4),
+                                  ),
                                 ],
                               ),
                               child: ClipRRect(
@@ -168,11 +206,13 @@ class _LandingScreenState extends State<LandingScreen> {
                                 child: Stack(
                                   fit: StackFit.expand,
                                   children: [
-                                    Image.network(card.imageUrl,
-                                        fit: BoxFit.cover,
-                                        errorBuilder: (_, __, ___) =>
-                                            Container(
-                                                color: const Color(0xFFE5E7EB))),
+                                    Image.network(
+                                      card.imageUrl,
+                                      fit: BoxFit.cover,
+                                      errorBuilder: (_, _, _) => Container(
+                                        color: const Color(0xFFE5E7EB),
+                                      ),
+                                    ),
                                     // Dark bottom gradient
                                     Positioned.fill(
                                       child: DecoratedBox(
@@ -183,8 +223,9 @@ class _LandingScreenState extends State<LandingScreen> {
                                             stops: const [0.4, 1.0],
                                             colors: [
                                               Colors.transparent,
-                                              Colors.black
-                                                  .withValues(alpha: 0.75),
+                                              Colors.black.withValues(
+                                                alpha: 0.75,
+                                              ),
                                             ],
                                           ),
                                         ),
@@ -196,18 +237,25 @@ class _LandingScreenState extends State<LandingScreen> {
                                       left: 10,
                                       child: Container(
                                         padding: const EdgeInsets.symmetric(
-                                            horizontal: 8, vertical: 4),
-                                        decoration: BoxDecoration(
-                                          color: Colors.black
-                                              .withValues(alpha: 0.4),
-                                          borderRadius:
-                                              BorderRadius.circular(12),
+                                          horizontal: 8,
+                                          vertical: 4,
                                         ),
-                                        child: Text(card.title,
-                                            style: const TextStyle(
-                                                fontSize: 11,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white)),
+                                        decoration: BoxDecoration(
+                                          color: Colors.black.withValues(
+                                            alpha: 0.4,
+                                          ),
+                                          borderRadius: BorderRadius.circular(
+                                            12,
+                                          ),
+                                        ),
+                                        child: Text(
+                                          card.title,
+                                          style: const TextStyle(
+                                            fontSize: 11,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                     Positioned(
@@ -218,19 +266,25 @@ class _LandingScreenState extends State<LandingScreen> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(card.title,
-                                              maxLines: 1,
-                                              style: const TextStyle(
-                                                  fontSize: 14,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: Colors.white)),
-                                          Text(card.subtitle,
-                                              maxLines: 1,
-                                              style: TextStyle(
-                                                  fontSize: 11,
-                                                  color: Colors.white
-                                                      .withValues(
-                                                          alpha: 0.8))),
+                                          Text(
+                                            card.title,
+                                            maxLines: 1,
+                                            style: const TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                          Text(
+                                            card.subtitle,
+                                            maxLines: 1,
+                                            style: TextStyle(
+                                              fontSize: 11,
+                                              color: Colors.white.withValues(
+                                                alpha: 0.8,
+                                              ),
+                                            ),
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -258,17 +312,19 @@ class _LandingScreenState extends State<LandingScreen> {
                   height: 68 + MediaQuery.of(context).padding.bottom,
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: bottomNavGradientColors),
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: bottomNavGradientColors,
+                    ),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(24),
                       topRight: Radius.circular(24),
                     ),
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.15),
-                          blurRadius: 16),
+                        color: Colors.black.withValues(alpha: 0.15),
+                        blurRadius: 16,
+                      ),
                     ],
                   ),
                   child: Row(
@@ -306,12 +362,15 @@ class _LandingScreenState extends State<LandingScreen> {
                           border: Border.all(color: Colors.white, width: 3),
                           boxShadow: [
                             BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.25),
-                                blurRadius: 8),
+                              color: Colors.black.withValues(alpha: 0.25),
+                              blurRadius: 8,
+                            ),
                           ],
                         ),
-                        child:
-                            const Icon(Icons.photo_camera, color: Colors.white),
+                        child: const Icon(
+                          Icons.photo_camera,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -329,8 +388,11 @@ class _QuickTool extends StatelessWidget {
   final IconData icon;
   final String label;
   final VoidCallback onTap;
-  const _QuickTool(
-      {required this.icon, required this.label, required this.onTap});
+  const _QuickTool({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -344,16 +406,22 @@ class _QuickTool extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             boxShadow: [
               BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.06), blurRadius: 8),
+                color: Colors.black.withValues(alpha: 0.06),
+                blurRadius: 8,
+              ),
             ],
           ),
           child: Column(
             children: [
               Icon(icon, color: primaryPink, size: 26),
               const SizedBox(height: 6),
-              Text(label,
-                  style: const TextStyle(
-                      fontSize: 12, fontWeight: FontWeight.w600)),
+              Text(
+                label,
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ],
           ),
         ),
@@ -367,16 +435,18 @@ class _NavTab extends StatelessWidget {
   final String label;
   final bool selected;
   final VoidCallback onTap;
-  const _NavTab(
-      {required this.icon,
-      required this.label,
-      required this.selected,
-      required this.onTap});
+  const _NavTab({
+    required this.icon,
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final color =
-        selected ? const Color(0xFF1E1E24) : const Color(0xFF1E1E24).withValues(alpha: 0.6);
+    final color = selected
+        ? const Color(0xFF1E1E24)
+        : const Color(0xFF1E1E24).withValues(alpha: 0.6);
     return Expanded(
       child: GestureDetector(
         onTap: onTap,
@@ -386,12 +456,14 @@ class _NavTab extends StatelessWidget {
           children: [
             Icon(icon, color: color, size: 24),
             const SizedBox(height: 2),
-            Text(label,
-                style: TextStyle(
-                    fontSize: 11,
-                    fontWeight:
-                        selected ? FontWeight.bold : FontWeight.normal,
-                    color: color)),
+            Text(
+              label,
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: selected ? FontWeight.bold : FontWeight.normal,
+                color: color,
+              ),
+            ),
           ],
         ),
       ),

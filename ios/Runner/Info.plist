@@ -24,6 +24,7 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+t<key>NSPhotoLibraryUsageDescription</key>\n\t<string>We need access to your photo library to pick images for editing.</string>\n\t<key>NSPhotoLibraryAddUsageDescription</key>\n\t<string>We need access to save the edited photos to your gallery.</string>\n\t<key>NSCameraUsageDescription</key>\n\t<string>We need access to camera if you want to take a picture.</string>\n
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
