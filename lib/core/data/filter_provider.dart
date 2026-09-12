@@ -9,7 +9,7 @@ class FilterItem {
 class FilterProvider {
   static const categories = ['Portrait', 'Scenery', 'Vintage', 'Artistic', 'Digicam'];
 
-  static const allFilters = <FilterItem>[
+  static final allFilters = <FilterItem>[
     // Portrait
     FilterItem('Original', 'Portrait', CM.identity),
     FilterItem('Soft Glow', 'Portrait', [
